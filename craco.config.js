@@ -1,7 +1,5 @@
 const CracoAlias = require('craco-alias');
 
-console.log('test');
-
 module.exports = {
   plugins: [
     {

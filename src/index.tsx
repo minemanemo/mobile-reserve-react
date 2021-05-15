@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { RecoilRoot } from 'recoil'; // recoil 추가
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
@@ -9,14 +10,16 @@ import theme from './styles/theme';
 
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-      <GlobalStyle />
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+        <GlobalStyle />
+      </ThemeProvider>
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root'),
 );

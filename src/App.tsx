@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Switch from '@router/Switch';
@@ -8,13 +8,15 @@ const App = () => {
   const history = useHistory();
 
   React.useEffect(() => {
-    history.push('/about');
+    history.push('/reservation');
   }, []);
 
   return (
     <div>
-      <TopNavigationBar />
-      <Switch />
+      <Suspense fallback={<div>Loading...</div>}>
+        <TopNavigationBar />
+        <Switch />
+      </Suspense>
     </div>
   );
 };

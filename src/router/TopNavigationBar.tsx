@@ -6,9 +6,6 @@ const TopNavigationBar = () => {
     <nav>
       <ul>
         <li>
-          <Link to="/about">Home</Link>
-        </li>
-        <li>
           <Link to="/reservation">Reservation</Link>
         </li>
         <li>
