@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import App from './App';
-import GlobalStyle from './style/global';
-import theme from './style/theme';
+import GlobalStyle from './styles/global';
+import theme from './styles/theme';
 
 import reportWebVitals from './reportWebVitals';
 

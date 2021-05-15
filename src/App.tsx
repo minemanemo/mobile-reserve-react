@@ -1,6 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Switch, TopNavigationBar } from './router';
+
+import Switch from '@router/Switch';
+import TopNavigationBar from '@router/TopNavigationBar';
 
 const App = () => {
   const history = useHistory();

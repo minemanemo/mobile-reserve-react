@@ -1,7 +1,9 @@
 import React from 'react';
 import { Switch as RouterSwitch, Route } from 'react-router-dom';
 
-import { About, Reservation, Coupon } from '../container';
+import About from '@container/About';
+import Reservation from '@container/Reservation';
+import Coupon from '@container/Coupon';
 
 const Switch = () => (
   <RouterSwitch>
