@@ -13,7 +13,7 @@ export const couponListPageState = atom({
 
 export const couponListPageSizeState = atom({
   key: 'couponListPageSizeState',
-  default: 20,
+  default: 10,
 });
 
 export const generateCouponQuery = selector({
@@ -24,7 +24,7 @@ export const generateCouponQuery = selector({
       get(couponListPageState),
       get(couponListPageSizeState),
     );
-    return response.data.content;
+    return response.data;
   },
   set: ({ set }) => {
     set(couponListTriggerState, (v) => v + 1);

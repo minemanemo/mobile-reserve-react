@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import img from '@asset/illust.png';
 
 export const Main = styled.main`
   padding-top: 80px;
@@ -11,7 +12,7 @@ export const ReservationWrapper = styled.div`
   background-size: auto 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('https://blog.kakaocdn.net/dn/kPaoh/btqEL4DKWcf/UNZlBP0B8oOeMziktFQ4BK/img.jpg');
+  background-image: url(${img});
   opacity: 0.85;
 `;
 

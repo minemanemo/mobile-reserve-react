@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import logo from '@asset/logo.png';
 
 export const Header = styled.header`
   position: fixed;
@@ -17,15 +18,19 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
-  margin: 0 20px;
+
+  & > *:last-child {
+    margin-right: 20px;
+  }
+  & > *:first-child {
+    margin-left: 20px;
+  }
 `;
 
-// TODO: download contents
 export const Logo = styled.h1`
   width: 100px;
   height: 80px;
-  background: url('http://smilegate-intern.co.kr/@resources/images/logo.png') 0
-    center no-repeat;
+  background: url(${logo}) 0 center no-repeat;
   background-size: 100px auto;
 `;
 
