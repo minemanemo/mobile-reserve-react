@@ -7,18 +7,21 @@ import { ThemeProvider } from 'styled-components';
 import App from './App';
 import GlobalStyle from './styles/global';
 import theme from './styles/theme';
+import GlobalProvider from './components/Global/Provider';
 
 import reportWebVitals from './reportWebVitals';
 
 render(
   <React.StrictMode>
     <RecoilRoot>
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-        <GlobalStyle />
-      </ThemeProvider>
+      <GlobalProvider>
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+          <GlobalStyle />
+        </ThemeProvider>
+      </GlobalProvider>
     </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root'),
