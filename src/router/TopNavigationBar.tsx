@@ -1,18 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  Header,
+  Logo,
+  NavigationList,
+  NavigationListItem,
+  Wrapper,
+} from '@components/Navigator';
 
 const TopNavigationBar = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/reservation">Reservation</Link>
-        </li>
-        <li>
-          <Link to="/coupon">Coupon</Link>
-        </li>
-      </ul>
-    </nav>
+    <Header>
+      <Wrapper>
+        <Logo />
+        <nav>
+          <NavigationList>
+            <NavigationListItem>
+              <Link to="/reservation">사전 예약</Link>
+            </NavigationListItem>
+            <NavigationListItem>
+              <Link to="/coupon">예약 현황</Link>
+            </NavigationListItem>
+          </NavigationList>
+        </nav>
+      </Wrapper>
+    </Header>
   );
 };
 

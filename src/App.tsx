@@ -1,8 +1,9 @@
 import React, { Suspense } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import Switch from '@router/Switch';
+import { Main } from '@components/Content';
 import TopNavigationBar from '@router/TopNavigationBar';
+import Switch from '@router/Switch';
 
 const App = () => {
   const history = useHistory();
@@ -12,12 +13,12 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <TopNavigationBar />
+    <Suspense fallback={<div>Loading...</div>}>
+      <TopNavigationBar />
+      <Main>
         <Switch />
-      </Suspense>
-    </div>
+      </Main>
+    </Suspense>
   );
 };
 

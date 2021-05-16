@@ -27,12 +27,31 @@
   "eslintConfig": {
     "extends": [
       "airbnb",
-      "prettier"
+      "plugin:prettier/recommended"
     ],
     "rules": {
       "import/no-unresolved": 0,
       "import/extensions": 0,
       "arrow-body-style": 0,
+      "no-unused-vars": 1,
+      "import/order": 0,
+      "no-console": 0,
+      "no-param-reassign": [
+        "error",
+        {
+          "props": true,
+          "ignorePropertyModificationsFor": [
+            "draft"
+          ]
+        }
+      ],
+      "no-underscore-dangle": 0,
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ],
       "import/prefer-default-export": 0,
       "react/prefer-stateless-function": 0,
       "react/jsx-filename-extension": 0,
@@ -60,6 +79,8 @@
     "@types/styled-components": "^5.1.9",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
-    "http-proxy-middleware": "^2.0.0"
+    "eslint-plugin-prettier": "^3.4.0",
+    "http-proxy-middleware": "^2.0.0",
+    "prettier": "^2.3.0"
   }
 }

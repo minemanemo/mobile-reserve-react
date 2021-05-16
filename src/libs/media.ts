@@ -1,21 +1,16 @@
 import { css } from 'styled-components';
 
 const media = {
-  // mobile: (...args: any) => css`
-  //   @media (max-width: 768px) {
-  //     ${css(...args)}
-  //   }
-  // `,
-  // tablet: (...args: any) => css`
-  //   @media (min-width: 768px) and (max-width: 1024px) {
-  //     ${css(...args)}
-  //   }
-  // `,
-  // desktop: (...args: any) => css`
-  //   @media (min-width: 1025px) {
-  //     ${css(...args)}
-  //   }
-  // `,
+  mobile: (args: any) => css`
+    @media (max-width: 1280px) {
+      ${css(args)}
+    }
+  `,
+  desktop: (args: any) => css`
+    @media (min-width: 1280px) {
+      ${css(args)}
+    }
+  `,
 
   wrapper: () => css`
     margin: 0 auto;
