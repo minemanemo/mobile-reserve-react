@@ -14,9 +14,10 @@ const Reservation = () => {
   const handleClickClose = () => setOpen(false);
   const handleReserve = async (phoneNumber: string) => {
     try {
-      const response = await postCoupon(phoneNumber);
-      // TODO: api server check
-      alert.open('사전 예약이 완료되었습니다.', `쿠폰 번호 : ${response.data}`);
+      const {
+        data: { couponNumber },
+      } = await postCoupon(phoneNumber);
+      alert.open('사전 예약이 완료되었습니다.', `쿠폰 번호 : ${couponNumber}`);
     } catch (e) {
       const { status, data } = e.response;
       switch (status) {

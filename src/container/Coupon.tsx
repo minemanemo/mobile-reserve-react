@@ -1,14 +1,10 @@
 import React, { useEffect } from 'react';
-import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
-import {
-  generateCouponQuery,
-  couponListPageState,
-  couponListPageSizeState,
-} from '@atom/coupon';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
+import { generateCouponQuery } from '@atom/coupon';
 import { CouponWrapper, CouponContent } from '@components/Content';
 import { getDateTimeString } from '@libs/time';
+import { Coupon } from '@type/index';
 
-import TablePagination from '@material-ui/core/TablePagination';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -17,34 +13,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-interface Row {
-  sequence: number;
-  phoneNumber: string;
-  couponNumber: string;
-  issuedDate: string;
-}
-interface Data {
-  content: Row[];
-  totalElements: number;
-}
-
 const CouponContainer = () => {
-  const data = useRecoilValue<Data>(generateCouponQuery);
+  const data = useRecoilValue<Coupon[]>(generateCouponQuery);
   const refreshList = useResetRecoilState(generateCouponQuery);
-  const [page, setPage] = useRecoilState(couponListPageState);
-  const [pageSize, setPageSize] = useRecoilState(couponListPageSizeState);
-
-  const handleChangePage = (
-    event: React.MouseEvent<HTMLButtonElement> | null,
-    p: number,
-  ) => {
-    setPage(p);
-  };
-
-  const handleChangePageSize = (e: any) => {
-    setPage(0);
-    setPageSize(e.target.value);
-  };
 
   useEffect(() => {
     refreshList();
@@ -65,30 +36,20 @@ const CouponContainer = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {data.content.map((item) => {
+                {data.map((item) => {
                   return (
                     <TableRow key={item.sequence}>
                       <TableCell>{item.sequence}</TableCell>
                       <TableCell>{item.phoneNumber}</TableCell>
                       <TableCell>{item.couponNumber}</TableCell>
                       <TableCell>
-                        {getDateTimeString(new Date(item.issuedDate))}
+                        {getDateTimeString(new Date(item.createDate))}
                       </TableCell>
                     </TableRow>
                   );
                 })}
               </TableBody>
             </Table>
-
-            <TablePagination
-              component="div"
-              count={data.totalElements}
-              page={page}
-              onChangePage={handleChangePage}
-              rowsPerPage={pageSize}
-              rowsPerPageOptions={[5, 10, 20, 30, 40, 50, 100]}
-              onChangeRowsPerPage={handleChangePageSize}
-            />
           </TableContainer>
         </div>
       </CouponContent>

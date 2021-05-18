@@ -9,7 +9,7 @@
       "@container/*": ["./container/*"],
       "@router/*": ["./router/*"],
       "@styles/*": ["./styles/*"],
-      "@types/*": ["./types/*"]
+      "@type/*": ["./type/*"]
     }
   }
 }
